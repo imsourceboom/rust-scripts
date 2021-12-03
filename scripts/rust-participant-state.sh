@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $HOME/rustcup/scripts/rust-env.sh
+. $HOME/rust-scripts/scripts/rust-env.sh
 
 get_participants ()
 {
@@ -15,13 +15,13 @@ get_participants_rustcup ()
 }
 
 
-ELECTION_STATE=$(ton-election-state.sh)
+ELECTION_STATE=$(rust-election-state.sh)
 if [ $ELECTION_STATE != "ACTIVE" ]; then
    echo "UNKNOWN"
    exit
 fi
 
-ELECTIONS_ID=$(ton-election-id.sh)
+ELECTIONS_ID=$(rust-election-id.sh)
 if [ $ELECTIONS_ID = "-1" ]; then
    echo "ERROR: Can't get election date"
    exit

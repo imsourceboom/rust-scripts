@@ -23,9 +23,12 @@ export MSIG_KEYS_JSON_PATH="$KEYS_DIR/msig.keys.json"
 export DEPOOL_PATH="$KEYS_DIR/depool.addr"
 export DEPOOL_KEYS_JSON_PATH="$KEYS_DIR/depool.keys.json"
 export DEPOOL_ADDR=$(cat $DEPOOL_PATH)
-export NEW_DEPOOL_PATH="$HOME/latest-depool-key/depool.addr"
-export NEW_DEPOOL_KEYS_JSON_PATH="$HOME/latest-depool-key/depool.keys.json"
-export NEW_DEPOOL_ADDR=$(cat $NEW_DEPOOL_PATH)
+export HELPER_PATH="$KEYS_DIR/helper.addr"
+export HELPER_KEYS_JSON_PATH="$KEYS_DIR/helper.keys.json"
+export HELPER_ADDR=$(cat $HELPER_PATH)
+#export NEW_DEPOOL_PATH="$HOME/latest-depool-key/depool.addr"
+#export NEW_DEPOOL_KEYS_JSON_PATH="$HOME/latest-depool-key/depool.keys.json"
+#export NEW_DEPOOL_ADDR=$(cat $NEW_DEPOOL_PATH)
 
 # Contracts
 export DEPOOL_TVC="$DEPOOL_CONTRACTS_DIR/DePool.tvc"
@@ -38,4 +41,4 @@ export ELECTOR_ABI="$TOOLS_DIR/Elector.abi.json"
 # it is rustnet
 # 0 = false
 # 1 = true
-export TON_IS_RUSTNET=1
+export TON_IS_RUSTNET=0

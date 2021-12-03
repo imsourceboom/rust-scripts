@@ -1,8 +1,8 @@
 #!/bin/bash
 
-. $HOME/rustcup/scripts/rust-env.sh
+. $HOME/rust-scripts/scripts/rust-env.sh
 
-ELECTIONS_ID=$(ton-election-id.sh)
+ELECTIONS_ID=$(rust-election-id.sh)
 if [ $ELECTIONS_ID = "-1" ]; then
    echo "ERROR: Can't get election date"
    exit

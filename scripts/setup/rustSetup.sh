@@ -4,7 +4,7 @@
 # Check rustnet.ton.dev directory
 cd $HOME
 if [ ! -d $HOME/rustnet.ton.dev ]; then
-        git clone https://github.com/tonlabs/rustnet.ton.dev.git
+        git clone -b mainnet https://github.com/tonlabs/rustnet.ton.dev.git
 fi
 
 # Check network
