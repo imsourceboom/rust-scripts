@@ -12,7 +12,7 @@ cd $HOME/rust-scripts/monitoring
 npm i
 pm2 start app.js --name "monitoring"
 pm2 save
-pm2 startup | awk 'FNR == 3' > ~/rust-scripts/scripts/pm2-Startup.sh
-cd $HOME/rust-scripts/scripts
+pm2 startup | awk 'FNR == 3' > ~/rust-scripts/scripts/setup/pm2-Startup.sh
+cd $HOME/rust-scripts/scripts/setup
 sudo chmod 755 pm2-Startup.sh
 ./pm2-Startup.sh
