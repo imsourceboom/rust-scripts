@@ -1,19 +1,37 @@
 #!/bin/bash
 
-SCRIPTS_DIR="$HOME/rust-scripts"
+RUST_SCRIPTS_DIR="$HOME/rust-scripts"
+TOOLS_DIR="$RUST_SCRIPTS_DIR/tools"
 
 # Check tools directory
-if [ ! -d $SCRIPTS_DIR/tools ]; then
-        cd $SCRIPTS_DIR
+if [ ! -d $TOOLS_DIR ]; then
+        cd $RUST_SCRIPTS_DIR
         mkdir tools
 fi
 
 # Copy tools
-docker cp rnode:/ton-node/tools/tonos-cli $SCRIPTS_DIR/tools
-docker cp rnode:/ton-node/tools/tonos-cli.conf.json $SCRIPTS_DIR/tools
-docker cp rnode:/ton-node/configs/Elector.abi.json $SCRIPTS_DIR/tools
+docker cp rnode:/ton-node/tools/tonos-cli $RUST_SCRIPTS_DIR/tools
+docker cp rnode:/ton-node/tools/tonos-cli.conf.json $RUST_SCRIPTS_DIR/tools
+docker cp rnode:/ton-node/configs/Elector.abi.json $RUST_SCRIPTS_DIR/tools
 
-# Config endpoint
-#cd $OPERATOR_DIR/tools
-#./tonos-cli config endpoint add rust.ton.dev "https://rustnet1.ton.dev","https://rustnet2.ton.dev"
-#./tonos-cli config --url https://rustnet.ton.dev
+
+# Check tonos-cli config json
+cd $TOOLS_DIR
+if [ ! -f "tonos-cli.conf.json" ]; then
+	./tonos-cli config endpoint add main.ton.dev "https://main2.ton.dev,https://main3.ton.dev,https://main4.ton.dev"
+	./tonos-cli config --url main.ton.dev
+fi
+
+if [ ! -d "$TOOLS_DIR/ton-labs-contracts" ]; then
+	git clone https://github.com/tonlabs/ton-labs-contracts.git
+	sleep 3
+	cd $TOOLS_DIR/ton-labs-contracts/solidity/safemultisig
+	cp SafeMultisigWallet.tvc $TOOLS_DIR
+	cp SafeMultisigWallet.abi.json $TOOLS_DIR
+	cd $TOOLS_DIR/ton-labs-contracts/solidity/depool
+	cp DePool.tvc $TOOLS_DIR
+	cp DePool.abi.json $TOOLS_DIR
+	cp DePoolHelper.tvc $TOOLS_DIR
+	cp DePoolHelper.abi.json $TOOLS_DIR
+	rm -rf $TOOLS_DIR/ton-labs-contracts
+fi
