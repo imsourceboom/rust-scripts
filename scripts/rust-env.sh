@@ -14,6 +14,7 @@ export SAFE_CONTRACTS_DIR="$CONTRACTS_DIR/safemultisig"
 # tools
 export TONOS_CLI="$TOOLS_DIR/tonos-cli"
 export TONOS_CLI_CONFIG="$TOOLS_DIR/tonos-cli.conf.json"
+export TONOS="$TONOS_CLI -c $TONOS_CLI_CONFIG"
 export TVM_LINKER="$TOOLS_DIR/tvm_linker"
 
 # Keys
