@@ -1,10 +1,10 @@
 #!/bin/bash
 
-. $HOME/rustcup/scripts/rust-env.sh
+. $HOME/rust-scripts/scripts/rust-env.sh
 
 $TONOS_CLI -c $TONOS_CLI_CONFIG depool \
-        --addr $NEW_DEPOOL_ADDR \
+        --addr $DEPOOL_ADDR \
         stake withdrawPart \
         --wallet $VALIDATOR_ADDR \
-        --value 1000000 \
+        --value $1 \
         --sign $MSIG_KEYS_JSON_PATH

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $HOME/rustcup/scripts/rust-env.sh
+. $HOME/rust-scripts/scripts/rust-env.sh
 
 PUBKEY=$(cat $MSIG_KEYS_JSON_PATH | grep 'public' | awk '{print $2}' | tr -d \",)
 

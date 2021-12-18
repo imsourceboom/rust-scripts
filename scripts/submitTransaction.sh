@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $HOME/rustcup/scripts/rust-env.sh
+. $HOME/rust-scripts/scripts/rust-env.sh
 
 $TONOS_CLI -c $TONOS_CLI_CONFIG call \
 	$VALIDATOR_ADDR \

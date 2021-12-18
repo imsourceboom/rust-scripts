@@ -7,9 +7,6 @@ ROOT_DIR=$(cd "${SCRIPTS_DIR}/../" && pwd -P)
 export ROOT_DIR
 export KEYS_DIR="$HOME/keys"
 export TOOLS_DIR="$ROOT_DIR/tools"
-export CONTRACTS_DIR="$ROOT_DIR/ton-labs-contracts/solidity"
-export DEPOOL_CONTRACTS_DIR="$CONTRACTS_DIR/depool"
-export SAFE_CONTRACTS_DIR="$CONTRACTS_DIR/safemultisig"
 
 # tools
 export TONOS_CLI="$TOOLS_DIR/tonos-cli"
@@ -27,16 +24,15 @@ export DEPOOL_ADDR=$(cat $DEPOOL_PATH)
 export HELPER_PATH="$KEYS_DIR/helper.addr"
 export HELPER_KEYS_JSON_PATH="$KEYS_DIR/helper.keys.json"
 export HELPER_ADDR=$(cat $HELPER_PATH)
-#export NEW_DEPOOL_PATH="$HOME/latest-depool-key/depool.addr"
-#export NEW_DEPOOL_KEYS_JSON_PATH="$HOME/latest-depool-key/depool.keys.json"
-#export NEW_DEPOOL_ADDR=$(cat $NEW_DEPOOL_PATH)
 
 # Contracts
-export DEPOOL_TVC="$DEPOOL_CONTRACTS_DIR/DePool.tvc"
-export DEPOOL_ABI="$DEPOOL_CONTRACTS_DIR/DePool.abi.json"
-export PROXY_TVC="$DEPOOL_CONTRACTS_DIR/DePoolProxy.tvc"
-export SAFE_TVC="$SAFE_CONTRACTS_DIR/SafeMultisigWallet.tvc"
-export SAFE_ABI="$SAFE_CONTRACTS_DIR/SafeMultisigWallet.abi.json"
+export DEPOOL_TVC="$TOOLS_DIR/DePool.tvc"
+export DEPOOL_ABI="$TOOLS_DIR/DePool.abi.json"
+export DEPOOL_HELPER_TVC="$TOOLS_DIR/DePoolHelper.tvc"
+export DEPOOL_HELPER_ABI="$TOOLS_DIR/DePoolHelper.abi.json"
+export PROXY_TVC="$TOOLS_DIR/DePoolProxy.tvc"
+export SAFE_TVC="$TOOLS_DIR/SafeMultisigWallet.tvc"
+export SAFE_ABI="$TOOLS_DIR/SafeMultisigWallet.abi.json"
 export ELECTOR_ABI="$TOOLS_DIR/Elector.abi.json"
 
 # it is rustnet
