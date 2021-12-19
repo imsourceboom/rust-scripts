@@ -3,7 +3,7 @@
 cd $HOME
 
 sudo apt-get update -y
-sudo apt-get install curl -y
+sudo apt-get install curl jq -y
 curl -fsSL https://get.docker.com/ | sudo sh
 sudo usermod -aG docker $USER
 
