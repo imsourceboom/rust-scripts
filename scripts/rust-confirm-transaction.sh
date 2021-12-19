@@ -4,7 +4,7 @@
 
 CUSTODIAN_KEY=""
 
-GET_TRANSACTIONS="$($TONOS_CLI -c $TONOS_CLI_CONFIG run $VALIDATOR_ADDR getTransactions {} --abi  $SAFE_ABI )" 
+GET_TRANSACTIONS="$($TONOS_CLI -c $TONOS_CLI_CONFIG run $VALIDATOR_ADDR getTransactions {} --abi $SAFE_ABI)" 
 TRANSACTIONS_COUNT=$(echo $GET_TRANSACTIONS | awk -F'Result: ' '{print $2}' | jq '.transactions|length')
 
 if [[ $TRANSACTIONS_COUNT == 0 ]]; then
