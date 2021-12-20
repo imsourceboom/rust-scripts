@@ -7,6 +7,7 @@ const shell = require('shelljs');
 const token = process.env.TELEGRAM_BOT_TOKEN;
 exports.bot = new TelegramBot(token, { polling: false });
 exports.groupChatId = process.env.TELEGRAM_GROUP_CHAT_ID;
+exports.electionChatId = process.env.TELEGRAM_ELECTION_CHAT_ID;
 
 exports.serverNo = shell.exec('cd ~/ && cat serverno', { silent: true }).stdout;
 

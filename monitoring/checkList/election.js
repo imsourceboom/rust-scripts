@@ -1,6 +1,6 @@
 const cron = require('node-schedule');
 const shell = require('shelljs');
-const { bot, groupChatId, serverNo } = require('../app');
+const { bot, electionChatId, serverNo } = require('../app');
 
 const second = Math.floor(Math.random() * 59) + 1;
 cron.scheduleJob(`${second} */3 * * * *`, () => {
@@ -17,7 +17,7 @@ cron.scheduleJob(`${second} */3 * * * *`, () => {
                 const checkDate = shell.exec('date "+%Y-%m-%d %H:%M:%S"', { silent:true });
 
                 if (participant === 'NOT_FOUND\n') {
-                    bot.sendMessage(groupChatId, `${serverNo}‼️  Not in Election\n${checkDate}`)
+                    bot.sendMessage(electionChatId, `${serverNo}‼️  Not in Election\n${checkDate}`)
                 }
             }
 
