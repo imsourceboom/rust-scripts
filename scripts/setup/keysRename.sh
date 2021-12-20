@@ -7,7 +7,7 @@ if [ -z ${PACKAGE} ]; then
 	sudo apt install rename -y
 fi
 
-cp $HOME/keys $HOME/ludi-keys
+cp -r $HOME/keys $HOME/ludi-keys
 
 cd $HOME/keys
 
