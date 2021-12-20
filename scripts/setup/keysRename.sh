@@ -7,6 +7,8 @@ if [ -z ${PACKAGE} ]; then
 	sudo apt install rename -y
 fi
 
+cp $HOME/keys $HOME/ludi-keys
+
 cd $HOME/keys
 
 OLD_HOSTNAME=$(ls *.depool.addr | cut -f 1 -d '.')
