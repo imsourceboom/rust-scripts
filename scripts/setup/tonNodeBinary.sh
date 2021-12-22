@@ -36,6 +36,7 @@ git submodule update
 cargo update && cargo build --release
 cd $HOME/ton-labs-node-tools/target/release
 cp console $HOME/rust-scripts/tools
+cp keygen $HOME/rust-scripts/tools
 
 cd $HOME/ton-labs-node
 git rev-parse HEAD
