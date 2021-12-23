@@ -12,7 +12,7 @@ cron.scheduleJob(`${second} */3 * * * *`, () => {
             const electionStartTime = Number(shell.exec('./rust-election-start.sh', {silent:true}).stdout);
             const currentTime = Number(shell.exec('date +%s', { silent:true }).stdout);
 
-            if (currentTime - electionStartTime > 3600) {
+            if (currentTime - electionStartTime > 7200) {
                 const participant = shell.exec('./rust-participant-state.sh', { silent:true }).stdout;
                 const checkDate = shell.exec('date "+%Y-%m-%d %H:%M:%S"', { silent:true });
 
