@@ -25,4 +25,4 @@ keysCopy.sh
 ```
 moniteringSetup.sh
 ```
-* 스크립트 실행 전 monitortring 디렉토리안의 .env 파일 생성 후 telegram api 와 chat id 값 입력
+* 스크립트 실행 전 monitorring 디렉토리안의 .env 파일 생성 후 telegram api 와 chat id 값 입력
