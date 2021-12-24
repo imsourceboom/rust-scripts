@@ -18,10 +18,8 @@ cd $HOME/rustnet.ton.dev/scripts
 
 sleep 5
 # Tools setup
-cd $HOME/rustnet.ton.dev/scripts/setup
+cd $HOME/rust-scripts/scripts/setup
 ./toolsSetup.sh
 
 cp $HOME/rust-scripts/configs/bash.config $HOME/.bashrc
 source $HOME/.bashrc
-
-getstats
