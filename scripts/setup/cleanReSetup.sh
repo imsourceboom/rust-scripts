@@ -27,6 +27,15 @@ cd $HOME/rustnet.ton.dev/scripts
 ./install_deps.sh
 ./deploy.sh 2>&1 | tee ./deploy.log
 
-# Wait and monitoring On
-sleep 7200
-pm2 restart 0
+sleep 5
+# rnode Stop
+cd $HOME/rustnet.ton.dev/docker-compose/ton-node
+docker-compose stop
+
+# Copy configs directory to rnode
+sudo rm -rf $HOME/rustnet.ton.dev/docker-compose/ton-node/configs
+sudo cp -r $HOME/configs $HOME/rustnet.ton.dev/docker-compose/ton-node
+
+# rnode Restart
+cd $HOME/rustnet.ton.dev/docker-compose/ton-node
+docker-compose restart
