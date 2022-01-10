@@ -8,6 +8,6 @@ cron.scheduleJob(`${second} 0 10 * * *`, () => {
   const dbAvail = Number(shell.exec('./db-check.sh', { silent: true }).stdout);
 
   if (dbAvail <= 50) {
-    bot.sendMessage(electionChatId, `${serverNo}🕞 DB Avail: ${dbAvail}G`);
+    bot.sendMessage(electionChatId, `${serverNo}💾 DB Avail: ${dbAvail}G`);
   }
 });
