@@ -11,6 +11,7 @@ exports.electionChatId = process.env.TELEGRAM_ELECTION_CHAT_ID;
 
 exports.serverNo = shell.exec('cd ~/ && cat serverno', { silent: true }).stdout;
 
-require('./checkList/timediff')
-require('./checkList/validate')
-require('./checkList/election')
+require('./checkList/timediff');
+require('./checkList/validate');
+require('./checkList/election');
+require('./checkList/dbCheck');
