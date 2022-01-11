@@ -2,6 +2,14 @@
 
 . $HOME/rust-scripts/scripts/rust-env.sh
 
-$TONOS_CLI -c $TONOS_CLI_CONFIG run $DEPOOL_ADDR \
-        getParticipantInfo "{\"addr\":\"$VALIDATOR_ADDR\"}" \
+if [ $# == 0 ]; then
+	$TONOS run $DEPOOL_ADDR \
+	        getparticipantinfo "{\"addr\":\"$VALIDATOR_ADDR\"}" \
+	        --abi $DEPOOL_ABI
+	exit 0
+fi
+
+$TONOS run $DEPOOL_ADDR \
+        getparticipantinfo "{\"addr\":\"$1\"}" \
         --abi $DEPOOL_ABI
+
