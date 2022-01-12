@@ -2,7 +2,7 @@
 
 . $HOME/rust-scripts/scripts/rust-env.sh
 
-$TONOS_CLI -c $TONOS_CLI_CONFIG call \
+$TONOS call \
 	$HELPER_ADDR \
 	sendTicktock {} \
 	--abi $DEPOOL_HELPER_ABI \
