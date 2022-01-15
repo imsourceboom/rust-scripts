@@ -13,3 +13,9 @@ cd $HOME/main.ton.dev/scripts
 ./upgrade.sh 2>&1 | tee ./upgrade.log
 
 sudo rm -rf $HOME/rustnet.ton.dev
+
+cp $HOME/rust-scripts/configs/bash.config ~/.bashrc && source $HOME/.bashrc
+
+sleep 10
+docker exec -it rnode /ton-node/tools/console -C /ton-node/configs/console.json -c getstats | grep 'COMMIT_ID'
+docker exec -it rnode /ton-node/ton_node_no_kafka --help | grep 'TON Node'
