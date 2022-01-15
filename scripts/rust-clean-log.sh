@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOGS_DIR="$HOME/rustnet.ton.dev/docker-compose/ton-node/logs"
+LOGS_DIR="$HOME/main.ton.dev/docker-compose/ton-node/logs"
 
 if [ -f $LOGS_DIR/output.log ]; then
 	echo 0 | sudo tee $LOGS_DIR/output.log
