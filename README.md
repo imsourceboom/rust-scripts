@@ -57,3 +57,19 @@ cd $HOME/rust-scripts/setup
 ```
 
 - 스크립트 실행 전 monitorring 디렉토리안의 .env 파일 생성 후 telegram api 와 chat id 값 입력
+
+6. monitoring 제어
+
+```
+# 프로세스 확인 - 모니터링 프로세스 name: monitoring
+pm2 ls
+
+# 시작
+pm2 start [process id]
+
+# 중지
+pm2 stop [process id]
+
+# 재시작 - 모니터링 관련 스크립트가 업데이트 되었을 때 실행
+pm2 restart [process id]
+```
