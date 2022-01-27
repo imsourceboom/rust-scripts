@@ -3,11 +3,13 @@ const shell = require('shelljs');
 const { bot, groupChatId, serverNo } = require('../app');
 
 const second = Math.floor(Math.random() * 59) + 1;
-cron.scheduleJob(`${second} */4 * * * *`, () => {
-        shell.cd('~/rust-scripts/scripts');
-        const validate = shell.exec('./rust-validate-state.sh', { silent: true }).stdout;
+cron.scheduleJob(`${second} */10 * * * *`, () => {
+  shell.cd('~/rust-scripts/scripts');
+  const validate = shell
+    .exec('./rust-validate-state.sh', { silent: true })
+    .stdout.replace(/\r|\n/g, '');
 
-        if (!(validate === 'true\r\n')) {
-                bot.sendMessage(groupChatId, `${serverNo}⛓ Not Validation`);
-        }
-})
+  if (validate !== 'true') {
+    bot.sendMessage(groupChatId, `${serverNo}⛓ Not Validation`);
+  }
+});
