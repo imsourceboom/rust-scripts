@@ -1,9 +1,26 @@
 # Rust Node Management Scripts
 
-- user 계정 생성 후 sudo 권한 부여
-- user 계정 접속 후 ssh 셋팅
+- user 계정 생성 후 sudo 권한 부여 (example: username)
+
+```
+sudo adduser username
+sudo usermod -aG sudo username
+```
+
+- ssh 셋팅
+
+```
+mkdir -p $HOME/.ssh
+echo "your ssh-rsa key" >> $HOME/.ssh/authorized_keys
+sudo chmod 700 $HOME/.ssh
+sudo chmod 600 $HOME/.ssh/authorized_keys
+sudo cp -r $HOME/.ssh /home/username
+sudo chown -R username:username /home/username/.ssh
+```
 
 ---
+
+> 생성한 계정으로 접속
 
 rust-scripts/scripts/setup
 
@@ -13,7 +30,7 @@ rust-scripts/scripts/setup
 pre-setup.sh
 ```
 
-> Docker 특성상 권한 부여를 하더라도 재접속이 필요함
+- Docker 특성상 권한 부여를 하더라도 재접속이 필요함
 
 2. Rust node 셋업
 
@@ -33,4 +50,4 @@ keysCopy.sh
 moniteringSetup.sh
 ```
 
-> 스크립트 실행 전 monitorring 디렉토리안의 .env 파일 생성 후 telegram api 와 chat id 값 입력
+- 스크립트 실행 전 monitorring 디렉토리안의 .env 파일 생성 후 telegram api 와 chat id 값 입력
