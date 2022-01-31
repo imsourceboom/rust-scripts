@@ -3,7 +3,7 @@ const shell = require('shelljs');
 const { bot, electionChatId, serverNo } = require('../app');
 
 const second = Math.floor(Math.random() * 59) + 1;
-cron.scheduleJob(`${second} 0 10 * * *`, () => {
+cron.scheduleJob(`${second} */10 * * * *`, () => {
   shell.cd('~/rust-scripts/scripts');
   const dbAvail = Number(shell.exec('./db-check.sh', { silent: true }).stdout);
 
