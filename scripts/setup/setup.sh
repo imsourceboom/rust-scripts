@@ -20,5 +20,13 @@ sleep 5
 cd $HOME/rust-scripts/scripts/setup
 ./toolsSetup.sh
 
+# Crontab setup
+crontab $HOME/rust-scripts/configs/cron.config
+sudo systemctl restart cron
+
+# Copy bash config
 cp $HOME/rust-scripts/configs/bash.config $HOME/.bashrc
-source $HOME/.bashrc
+
+echo "--------------------"
+echo "Please run command"
+echo "source $HOME/.bashrc"
