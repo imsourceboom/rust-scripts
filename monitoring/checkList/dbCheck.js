@@ -7,11 +7,7 @@ cron.scheduleJob(`${second} */10 * * * *`, () => {
   shell.cd('~/rust-scripts/scripts');
   const dbAvail = Number(shell.exec('./db-check.sh', { silent: true }).stdout);
 
-  if (dbAvail <= 120) {
-    bot.sendMessage(electionChatId, `${serverNo}💾 DB Avail: ${dbAvail}G\nStart Database clean up!\nrestart PM2 after about 4 hours`);
-
-    setTimeout(() => {
-    	shell.exec('./rust-clean-db.sh', { silent: true });
-    }, 60000);
+  if (dbAvail <= 50) {
+    bot.sendMessage(electionChatId, `${serverNo}💾 DB Avail: ${dbAvail}G`);
   }
 });
