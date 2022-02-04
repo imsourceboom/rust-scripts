@@ -14,6 +14,7 @@ if [ $STAKE_AMOUNT -lt $MIN_STAKE_NANO ]; then
 	exit
 fi
 
+
 cd $SCRIPTS_DIR
 tmux new -ds stake
 tmux send -t stake.0 "./ordinaryStake.sh $STAKE_AMOUNT_GRAM && sleep 65536 && ./ordinaryStake.sh $STAKE_AMOUNT_GRAM"
