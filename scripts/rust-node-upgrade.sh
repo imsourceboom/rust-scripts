@@ -6,7 +6,7 @@ GROUP_NO=0
 PREV=0
 
 cd $HOME/main.ton.dev/scripts
-tmux new -ds upgarde
+tmux new -ds upgrade
 
 for (( i = 3; i <= 198; i+=3 ))
 do
