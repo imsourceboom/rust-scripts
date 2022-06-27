@@ -22,7 +22,7 @@ cron.scheduleJob(`${second} */10 * * * *`, () => {
   if (
     !(1 < timeDiff && timeDiff < 100) ||
     !(1 < shardsTimeDiff && shardsTimeDiff < 100) ||
-    syncStatus != 'synchronization finished'
+    syncStatus != 'synchronization_finished'
   ) {
     bot.sendMessage(
       groupChatId,
