@@ -2,8 +2,7 @@
 
 . $HOME/rust-scripts/scripts/rust-env.sh
 
-ADDR=$($SCRIPTS_DIR/getDePoolBalance.sh | grep "address:")
 BALANCE=$($SCRIPTS_DIR/getDePoolBalance.sh | grep "value0" | awk '{print $2}' | tr -d \")
 TON_BALANCE=$($SCRIPTS_DIR/hex2gram.sh $BALANCE)
-echo $ADDR
+echo $DEPOOL_ADDR
 echo "balance: $TON_BALANCE"
