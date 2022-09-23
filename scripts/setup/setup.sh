@@ -22,7 +22,6 @@ cd $HOME/rust-scripts/scripts/setup
 
 # Crontab setup
 crontab $HOME/rust-scripts/configs/cron.config
-sudo systemctl restart cron
 
 # Copy bash config
 cp $HOME/rust-scripts/configs/bash.config $HOME/.bashrc
