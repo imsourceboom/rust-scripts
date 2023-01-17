@@ -18,8 +18,8 @@ docker cp rnode:/ton-node/configs/Elector.abi.json $RUST_SCRIPTS_DIR/tools
 # Check tonos-cli config json
 cd $TOOLS_DIR
 if [ ! -f "tonos-cli.conf.json" ]; then
-	./tonos-cli config endpoint add main.ton.dev "https://eri01.main.everos.dev,https://gra01.main.everos.dev,https://gra02.main.everos.dev,https://lim01.main.everos.dev,https://rbx01.main.everos.dev"
-	./tonos-cli config --url main.ton.dev
+	./tonos-cli config endpoint add main.evercloud.dev "https://mainnet.evercloud.dev"
+	./tonos-cli config --url main.evercloud.dev
 fi
 
 if [ ! -d "$TOOLS_DIR/ton-labs-contracts" ]; then

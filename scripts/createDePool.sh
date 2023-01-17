@@ -1,16 +1,8 @@
 #!/bin/bash
 
-. $HOME/rustcup/scripts/rust-env.sh
+. rust-env.sh
 
-if [ ! -d $HOME/latest-depool-key ]; then
-	mkdir $HOME/latest-depool-key
-fi
+DEPOOL_GENADDR=$($TONOS genaddr --genkey $KEYS_DIR/depool.keys.json --wc 0 $DEPOOL_TVC --abi $DEPOOL_ABI)
+echo "$DEPOOL_GENADDR" | echo "Seed phrase" | cut -d ' ' -f 3- | tr -d '"' > $KEYS_DIR/depool.seed
+echo "$DEPOOL_GENADDR" | echo "Raw address" | awk '{print $3}' > $KEYS_DIR/depool.addr
 
-NEW_PATH="$HOME/latest-depool-key"
-
-SEED_PHRASE=$($TONOS_CLI -c $TONOS_CLI_CONFIG genphrase | sed -n '3p' | cut -f 3- -d ' ' | tr -d \")
-echo $SEED_PHRASE > $NEW_PATH/depool.seed
-$TONOS_CLI -c $TONOS_CLI_CONFIG getkeypair $NEW_PATH/depool.keys.json "$SEED_PHRASE"
-
-DEPOOL_ADDRESS=$($TONOS_CLI -c $TONOS_CLI_CONFIG genaddr $DEPOOL_TVC $DEPOOL_ABI --setkey $NEW_PATH/depool.keys.json --wc 0)
-echo "$DEPOOL_ADDRESS" | grep "Raw address:" | cut -f 3 -d ' ' > $NEW_PATH/depool.addr
